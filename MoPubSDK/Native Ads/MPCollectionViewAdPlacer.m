@@ -150,6 +150,15 @@ static NSString * const kCollectionViewAdPlacerReuseIdentifier = @"MPCollectionV
 
 #pragma mark - <UICollectionViewDataSource>
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+  if ([self.originalDataSource respondsToSelector:@selector(numberOfSectionsInCollectionView:)]) {
+    return [self.originalDataSource numberOfSectionsInCollectionView:collectionView];
+  }
+
+  return 1;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSUInteger numberOfItems = [self.originalDataSource collectionView:collectionView numberOfItemsInSection:section];
@@ -186,6 +195,10 @@ static NSString * const kCollectionViewAdPlacerReuseIdentifier = @"MPCollectionV
     }
 
     return NO;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+  [MPAdPlacerInvocation invokeForTarget:self.originalDelegate with3ArgSelector:@selector(collectionView:willDisplayCell:forItemAtIndexPath:) firstArg:collectionView secondArg:cell thirdArg:indexPath streamAdPlacer:self.streamAdPlacer];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
