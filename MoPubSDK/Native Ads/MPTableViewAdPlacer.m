@@ -220,6 +220,21 @@ static NSString * const kTableViewAdPlacerReuseIdentifier = @"MPTableViewAdPlace
 //
 // -tableView:accessoryTypeForRowWithIndexPath - Deprecated, and causes a runtime exception.
 
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  if ([self.streamAdPlacer isAdAtIndexPath:indexPath]) {
+    return [self.streamAdPlacer sizeForAdAtIndexPath:indexPath withMaximumWidth:CGRectGetWidth(self.tableView.bounds)].height;
+  }
+  
+  if ([self.originalDelegate respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)]) {
+    NSIndexPath *originalIndexPath = [self.streamAdPlacer originalIndexPathForAdjustedIndexPath:indexPath];
+    return [self.originalDelegate tableView:tableView estimatedHeightForRowAtIndexPath:originalIndexPath];
+  }
+  
+  return tableView.estimatedRowHeight;
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.streamAdPlacer isAdAtIndexPath:indexPath]) {
