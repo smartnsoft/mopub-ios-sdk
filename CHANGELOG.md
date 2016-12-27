@@ -1,3 +1,28 @@
+## Version 4.11.1 (November 28th, 2016)
+- **App Transport Security Updates**
+	- Checks for "NSAllowsArbitraryLoadsInMedia" were changed to "NSAllowsArbitraryLoadsForMedia", per updated Apple documentation
+	- Resolves issue in which explicitly using NSAllowsArbitraryLoadsForMedia or NSAllowsArbitraryLoadsInWebContent causes HTTP clickthroughs not to resolve on iOS 10.1 or higher
+
+## Version 4.11.0 (November 10th, 2016)
+- **The MoPub SDK now uses WKWebView to display ads when possible. Backwards compatibility for old OS versions is retained using UIWebView.**
+- **Native video start tracker now fires immediately upon successful video playback.**
+- **Bug fixes**
+  - Native ads and native video ads now correctly fire impression trackers while scrolling.
+
+## Version 4.10.1 (October 28th, 2016)
+- **Bug fixes**
+  - Fixed iOS 10 bug that causes SKStoreProductViewController to crash if the app does not list portrait as a supported orientation.
+
+## Version 4.10.0 (October 18th, 2016)
+- **Certified FAN 4.15.1**
+- **Certified Chartboost 6.5.2**
+- **Certified Yahoo 7.6.4**
+- **Certified TapJoy support for 11.8.2**
+- **Certified Millennial support for 6.3.1**
+- **Certified Vungle 4.0.6**
+- **Bug fixes**
+  - Added support for the CocoaPods use_frameworks! directive
+
 ## Version 4.9.1 (September 14th, 2016)
 - **iOS 10 compatibility updates**
 	- Fixed an issue related to screen bounds calculation
