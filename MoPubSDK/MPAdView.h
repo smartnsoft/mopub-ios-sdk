@@ -133,7 +133,7 @@ typedef enum
  *          MPNativeAdOrientationPortrait,
  *          MPNativeAdOrientationLandscape
  *      } MPNativeAdOrientation;
- * </pre></code>
+ * </code></pre>
  *
  * @see unlockNativeAdsOrientation
  * @see allowedNativeAdsOrientation

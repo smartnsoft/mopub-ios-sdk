@@ -87,10 +87,8 @@
  * This only occurs if location services are enabled and the user has already authorized the use
  * of location services for the application. The default value is YES.
  *
- * @param enabled A Boolean value indicating whether the SDK should listen for location updates.
  */
 @property (nonatomic, assign) BOOL locationUpdatesEnabled;
-
 
 /**
  * A Boolean value indicating whether the MoPub SDK should create a MoPub ID that can be used
