@@ -157,6 +157,7 @@ static NSString * const kCollectionViewAdPlacerReuseIdentifier = @"MPCollectionV
   }
 
   return 1;
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -275,6 +276,13 @@ static NSString * const kCollectionViewAdPlacerReuseIdentifier = @"MPCollectionV
     NSInvocation *invocation = [MPAdPlacerInvocation invokeForTarget:self.originalDelegate with2ArgSelector:@selector(collectionView:shouldShowMenuForItemAtIndexPath:) firstArg:collectionView secondArg:indexPath streamAdPlacer:self.streamAdPlacer];
 
     return [MPAdPlacerInvocation boolResultForInvocation:invocation defaultValue:NO];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.originalDelegate respondsToSelector:@selector(collectionView:willDisplayCell:forItemAtIndexPath:)]) {
+        [MPAdPlacerInvocation invokeForTarget:self.originalDelegate with3ArgSelector:@selector(collectionView:willDisplayCell:forItemAtIndexPath:) firstArg:collectionView secondArg:cell thirdArg:indexPath streamAdPlacer:self.streamAdPlacer];
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

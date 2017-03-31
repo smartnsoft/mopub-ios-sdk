@@ -2,7 +2,7 @@
 //  UnityAdsRewardedVideoCustomEvent.h
 //  MoPubSDK
 //
-//  Copyright (c) 2015 MoPub. All rights reserved.
+//  Copyright (c) 2016 MoPub. All rights reserved.
 //
 
 #if __has_include(<MoPub/MoPub.h>)
@@ -12,9 +12,9 @@
 #endif
 
 /*
- * Certified with version 1.5.6 of the Unity SDK.
+ * Please reference the Supported Mediation Partner page at http://bit.ly/2mqsuFH for the
+ * latest version and ad format certifications.
  */
-
 @interface UnityAdsRewardedVideoCustomEvent : MPRewardedVideoCustomEvent
 
 @end
