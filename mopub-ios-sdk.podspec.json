@@ -1,7 +1,7 @@
 {
   "name": "mopub-ios-sdk",
   "module_name": "MoPub",
-  "version": "4.9.0",
+  "version": "4.13.0",
   "summary": "The Official MoPub Client SDK allows developers to easily monetize their apps by showing banner, interstitial, and native ads.",
   "description": "                    MoPub is a hosted ad serving solution built specifically for mobile publishers.\n                    Grow your mobile advertising business with powerful ad management, optimization \n                    and reporting capabilities, and earn revenue by connecting to the world's largest \n                    mobile ad exchange. \n\n                    To learn more or sign up for an account, go to http://www.mopub.com. \n",
   "homepage": "https://github.com/mopub/mopub-ios-sdk",
