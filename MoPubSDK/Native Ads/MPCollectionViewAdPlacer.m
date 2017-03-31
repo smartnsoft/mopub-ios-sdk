@@ -157,7 +157,6 @@ static NSString * const kCollectionViewAdPlacerReuseIdentifier = @"MPCollectionV
   }
 
   return 1;
-    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -198,9 +197,6 @@ static NSString * const kCollectionViewAdPlacerReuseIdentifier = @"MPCollectionV
     return NO;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-  [MPAdPlacerInvocation invokeForTarget:self.originalDelegate with3ArgSelector:@selector(collectionView:willDisplayCell:forItemAtIndexPath:) firstArg:collectionView secondArg:cell thirdArg:indexPath streamAdPlacer:self.streamAdPlacer];
-}
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {

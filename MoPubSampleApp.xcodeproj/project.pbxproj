@@ -2536,9 +2536,11 @@
 				ORGANIZATIONNAME = MoPub;
 				TargetAttributes = {
 					46B3339D19F075680078078A = {
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = ZDHPZ3M747;
+						ProvisioningStyle = Automatic;
 					};
 					AE23238E16F78A17002C2082 = {
+						DevelopmentTeam = ZDHPZ3M747;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -3240,7 +3242,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZDHPZ3M747;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3271,6 +3273,7 @@
 					"$(PROJECT_DIR)/AdNetworkSupport/Flurry/SDK/**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mopub.samples.objc.MoPubSampleApp-with-CEs.allan";
 				PRODUCT_NAME = "MoPubSampleApp with CEs";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3284,7 +3287,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZDHPZ3M747;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3315,6 +3318,7 @@
 					"$(PROJECT_DIR)/AdNetworkSupport/Flurry/SDK/**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mopub.samples.objc.MoPubSampleApp-with-CEs.allan";
 				PRODUCT_NAME = "MoPubSampleApp with CEs";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3387,7 +3391,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZDHPZ3M747;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AdNetworkSupport/GoogleAdMob/SDK",
@@ -3412,6 +3416,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mopub.samples.objc.MoPubSampleApp.allan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3425,7 +3430,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZDHPZ3M747;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AdNetworkSupport/GoogleAdMob/SDK",
@@ -3449,6 +3454,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mopub.samples.objc.MoPubSampleApp.allan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
