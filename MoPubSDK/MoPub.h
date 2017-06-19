@@ -19,6 +19,7 @@
 #import "MPRewardedVideoReward.h"
 #import "MPRewardedVideoCustomEvent.h"
 #import "MPRewardedVideoError.h"
+#import "MPAdDestinationDisplayAgent.h"
 
 #if MP_HAS_NATIVE_PACKAGE
 #import "MPNativeAd.h"
@@ -116,5 +117,16 @@
 - (void)start;
 - (NSString *)version;
 - (NSString *)bundleIdentifier;
+
+/**
+ * Default is MOPUBDisplayAgentTypeInApp = 0.
+ *
+ * If displayType is set to MOPUBDisplayAgentTypeNativeSafari = 1, http/https clickthrough URLs are opened in native
+ * safari browser.
+ * If displayType is set to MOPUBDisplayAgentTypeSafariViewController = 2, http/https clickthrough URLs are opened in
+ * SafariViewController.
+ *
+ */
+- (void)setClickthroughDisplayAgentType:(MOPUBDisplayAgentType)displayAgentType;
 
 @end
