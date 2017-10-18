@@ -85,7 +85,7 @@
 
     if (adView) {
         if (!self.hasAttachedToView) {
-            [self willAttachToView:self.associatedView];
+            [self willAttachToView:self.associatedView withAdContentViews:adView.subviews];
             self.hasAttachedToView = YES;
         }
 
@@ -143,14 +143,18 @@
 {
     NSMutableURLRequest *request = [[MPCoreInstanceProvider sharedProvider] buildConfiguredURLRequestWithURL:URL];
     request.cachePolicy = NSURLRequestReloadIgnoringCacheData;
-    [NSURLConnection connectionWithRequest:request delegate:nil];
+
+    NSURLConnection * connection = [[NSURLConnection alloc] initWithRequest:request delegate:nil startImmediately:NO];
+    [connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [connection start];
 }
 
 #pragma mark - Internal
 
-- (void)willAttachToView:(UIView *)view
-{
-    if ([self.adAdapter respondsToSelector:@selector(willAttachToView:)]) {
+- (void)willAttachToView:(UIView *)view withAdContentViews:(NSArray *)adContentViews {
+    if ([self.adAdapter respondsToSelector:@selector(willAttachToView:withAdContentViews:)]) {
+        [self.adAdapter willAttachToView:view withAdContentViews:adContentViews];
+    } else if ([self.adAdapter respondsToSelector:@selector(willAttachToView:)]) {
         [self.adAdapter willAttachToView:view];
     }
 }

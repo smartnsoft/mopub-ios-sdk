@@ -1,22 +1,76 @@
-## Version 4.13.0 (March 23rd, 2017)
+## Version 4.17.0 (September 27, 2017)
 - **Features**
-- Added support for mediation of Google AdMob rewarded video demand (Google Mobile Ads SDK v7.19.0).
-- Google AdMob native ads mediation is now generally available (Google Mobile Ads SDK v7.19.0).
-- Updated the Tapjoy network mediation adapter to support Tapjoy SDK v11.10.0
+    - Rewarded videos can now optionally pass back custom data to the publisher's reward server.
+    - Updated the minimum iOS version of the SDK to iOS 8.
+    - Update Facebook adapter with non whitespace clickable policy.
+
+## Version 4.16.0 (August 23, 2017)
+- **Features**
+  - Added viewability support for Integral Ad Science (IAS) and Moat, two of the leading independent viewability measurement providers
+    - To disable this feature, see note below on [Disabling Viewability Measurement](#disableViewability).
+  - New app launch rewarded video initialization method for mediated network SDKs
+- **Bug Fixes**
+  - Fixed native video crash caused by empty VAST tracking event
+  - Prevent interstitials from firing clicks without user interaction
+### <a name="disableViewability"></a>Disabling Viewability Measurement
+There are a few options for opting out of viewability measurement: 
+##### Opting Out in a Manual Integration
+Before dragging the MoPubSDK folder into your Xcode project, simply delete the “Moat” folder to opt out of Moat or the “Avid” folder to opt out of IAS in MoPubSDK/Viewability/. If you would like to opt out of both, delete both folders.
+##### Opting Out in a CocoaPods Integration
+Including `pod 'mopub-ios-sdk'` in your Podfile will include both IAS and Moat SDKs, as well as the MoPub SDK. In order to opt out:
+- `pod 'mopub-ios-sdk/Avid'` will include the IAS SDK, but not the Moat SDK, as well as the MoPub SDK.
+- `pod 'mopub-ios-sdk/Moat'` will include the Moat SDK, but not the IAS SDK, as well as the MoPub SDK.
+- `pod 'mopub-ios-sdk/Core'` will only include the MoPub SDK, with viewability measurement totally disabled.
+
+Make sure to run `pod update` once your Podfile is set up to your preferences.
+##### Software Disable
+If you would like to opt out of viewability measurement but do not want to modify the MoPub SDK, a function is provided for your convenience. As soon as possible after calling `[[MoPub sharedInstance] start]`, call `[[MoPub sharedInstance] disableViewability:(vendors)]`. In place of “(vendors)”, `MPViewabilityOptionIAS` will disable IAS but leave Moat enabled, `MPViewabilityOptionMoat` will disable Moat but leave IAS enabled, and `MPViewabilityOptionAll` will disable all viewability measurement.
+
+### Disclosure
+MoPub v4.16 SDK integrates technology from our partners Integral Ad Science, Inc. (“IAS”) and Moat, Inc. (“Moat”) in order to support viewability measurement and other proprietary reporting that [IAS](https://integralads.com/capabilities/viewability/) and [Moat](https://moat.com/analytics) provide to their advertiser and publisher clients. You have the option to remove or disable this technology by following the opt-out instructions [above](#disableViewability).  
+
+If you do not remove or disable IAS's and/or Moat’s technology in accordance with these instructions, you agree that IAS's [privacy policy](https://integralads.com/privacy-policy/) and [license](https://integralads.com/sdk-license-agreement) and Moat’s [privacy policy](https://moat.com/privacy),  [terms](https://moat.com/terms), and [license](https://moat.com/sdklicense.txt), respectively, apply to your integration of these partners' technologies into your application.
+
+## Version 4.15.0 (June 19th, 2017)
+- **Bug Fixes**
+  - Updated Facebook Audience Network banner and interstitial impression tracking
+  - Allow taps to pass through the gradient overlays for rewarded videos
+
+## Version 4.14.0 (May 10th, 2017)
+- **Features**
+  - For Rewarded ads, the client-side callback will now be invoked when using server-side rewarding.
+  - Non-mediated interstitial, rewarded, and native ad placer ads will expire within 4 hours.
 
 - **Bug Fixes**
-- Introduced additional preventative measures to improve creative quality.
+  - Fix old custom events that use the wrong native renderer.
+  - Replace usage of typeof with __typeof__ for C99 and C11 compliance.
+  - Fix CFBridgingRetain casting bug.
+  - Native ad impression tracker will now fire while scrolling.
+  - Fix HTML click tracker to fire when using window.location and window.open.
+
+## Version 4.13.1 (April 6th, 2017)
+- **Bug Fixes**
+  - Fixed compile error in the MoPub Base SDK Excluding Native bundle.
+
+## Version 4.13.0 (March 23rd, 2017)
+- **Features**
+  - Added support for mediation of Google AdMob rewarded video demand (Google Mobile Ads SDK v7.19.0).
+  - Google AdMob native ads mediation is now generally available (Google Mobile Ads SDK v7.19.0).
+  - Updated the Tapjoy network mediation adapter to support Tapjoy SDK v11.10.0
+
+- **Bug Fixes**
+  - Introduced additional preventative measures to improve creative quality.
 
 ## Version 4.12.0 (February 9th, 2017)
 - **Features**
-- Rewarded ad units now support rich media.
-- Allow MoPub static native renderer to render Flurry native ads.
-- Removed size limit for native ad main images.
+  - Rewarded ad units now support rich media.
+  - Allow MoPub static native renderer to render Flurry native ads.
+  - Removed size limit for native ad main images.
 
 - **Bug Fixes**
-- Native video selection logic now filters by supported MIME types.
-- Ad placer now supports section count.
-- Fix CFStringRef variable initialization.
+  - Native video selection logic now filters by supported MIME types.
+  - Ad placer now supports section count.
+  - Fix CFStringRef variable initialization.
 
 ## Version 4.11.1 (November 28th, 2016)
 - **App Transport Security Updates**

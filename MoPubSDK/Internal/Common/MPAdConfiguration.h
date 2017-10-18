@@ -55,6 +55,10 @@ extern NSString * const kAdTypeClear;
 extern NSString * const kAdTypeNative;
 extern NSString * const kAdTypeNativeVideo;
 
+extern NSString * const kClickthroughExperimentBrowserAgent;
+
+extern NSString * const kViewabilityDisableHeaderKey;
+
 @interface MPAdConfiguration : NSObject
 
 @property (nonatomic, assign) MPAdType adType;
@@ -83,8 +87,8 @@ extern NSString * const kAdTypeNativeVideo;
 @property (nonatomic, copy) NSString *headerAdType;
 @property (nonatomic, assign) NSInteger nativeVideoPlayVisiblePercent;
 @property (nonatomic, assign) NSInteger nativeVideoPauseVisiblePercent;
-@property (nonatomic, assign) NSInteger nativeVideoImpressionMinVisiblePercent;
-@property (nonatomic, assign) NSTimeInterval nativeVideoImpressionVisible;
+@property (nonatomic, assign) NSInteger nativeImpressionMinVisiblePercent;
+@property (nonatomic, assign) NSTimeInterval nativeImpressionMinVisibleTimeInterval;
 @property (nonatomic, assign) NSTimeInterval nativeVideoMaxBufferingTime;
 @property (nonatomic) NSDictionary *nativeVideoTrackers;
 @property (nonatomic, readonly) NSArray *availableRewards;
@@ -92,8 +96,6 @@ extern NSString * const kAdTypeNativeVideo;
 @property (nonatomic, copy) NSString *rewardedVideoCompletionUrl;
 @property (nonatomic, assign) NSTimeInterval rewardedPlayableDuration;
 @property (nonatomic, assign) BOOL rewardedPlayableShouldRewardOnClick;
-//TODO: Remove `forceUIWebView` once WKWebView is proven
-@property (nonatomic, assign) BOOL forceUIWebView;
 
 - (id)initWithHeaders:(NSDictionary *)headers data:(NSData *)data;
 

@@ -89,13 +89,16 @@
     }
 }
 
-- (void)presentRewardedVideoAdFromViewController:(UIViewController *)viewController
+- (void)presentRewardedVideoAdFromViewController:(UIViewController *)viewController withReward:(MPRewardedVideoReward *)reward customData:(NSString *)customData
 {
-    [self presentRewardedVideoAdFromViewController:viewController withReward:nil];
-}
+    // Don't allow the ad to be shown if it isn't ready.
+    if (!self.ready) {
+        // We don't want to remotely log this event -- it's simply for publisher troubleshooting -- so use NSLog
+        // rather than MPLog.
+        NSLog(@"Rewarded video ad view is not ready to be shown");
+        return;
+    }
 
-- (void)presentRewardedVideoAdFromViewController:(UIViewController *)viewController withReward:(MPRewardedVideoReward *)reward
-{
     // If we've already played an ad, don't allow playing of another since we allow one play per load.
     if (self.playedAd) {
         NSError *error = [NSError errorWithDomain:MoPubRewardedVideoAdsSDKDomain code:MPRewardedVideoAdErrorAdAlreadyPlayed userInfo:nil];
@@ -131,7 +134,7 @@
         }
     }
 
-    [self.adapter presentRewardedVideoFromViewController:viewController];
+    [self.adapter presentRewardedVideoFromViewController:viewController customData:customData];
 }
 
 - (void)handleAdPlayedForCustomEventNetwork
